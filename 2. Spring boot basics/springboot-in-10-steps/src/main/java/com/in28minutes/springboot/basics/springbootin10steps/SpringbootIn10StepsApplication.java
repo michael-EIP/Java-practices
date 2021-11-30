@@ -9,10 +9,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class SpringbootIn10StepsApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext applicationContext = SpringApplication.run(SpringbootIn10StepsApplication.class, args);
-		for (String name : applicationContext.getBeanDefinitionNames()) {
-			System.out.println(name);
-		}
+		SpringApplication.run(SpringbootIn10StepsApplication.class, args);
 	}
 
 }

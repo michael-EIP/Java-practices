@@ -12,6 +12,6 @@ public class BookController {
 	public List<Book> GetBooks(){
 		return Arrays.asList(
 				new Book(1, "My new book", "Michale"), 
-				new Book(2, "My data book", "Lucas"));
+				new Book(2, "My data book 1", "Lucas"));
 	}
 }
