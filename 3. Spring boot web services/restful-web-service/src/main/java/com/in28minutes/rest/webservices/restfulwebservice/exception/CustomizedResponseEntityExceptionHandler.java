@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.in28minutes.rest.webservices.restfulwebservice.post.PostExceptionCreateFailed;
-import com.in28minutes.rest.webservices.restfulwebservice.post.PostExceptionNotFound;
 import com.in28minutes.rest.webservices.restfulwebservice.user.UserNotFoundException;
 
 @ControllerAdvice
@@ -34,17 +32,6 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 		return new ResponseEntity(exceptionResponse, HttpStatus.NOT_FOUND);
 	}
 	
-	@ExceptionHandler(PostExceptionNotFound.class)
-	public final ResponseEntity<Object> PostNotFoundException(Exception ex, WebRequest request){
-		ExceptionResponse response = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
-		return new ResponseEntity(response, HttpStatus.NOT_FOUND);
-	}
-	
-	@ExceptionHandler(PostExceptionCreateFailed.class)
-	public final ResponseEntity<Object> PostCreatedFailException(Exception ex, WebRequest request){
-		ExceptionResponse response = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
-		return new ResponseEntity(response, HttpStatus.EXPECTATION_FAILED);
-	}
 	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(
